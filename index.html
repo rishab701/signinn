@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Show_And_Hide_Password</title>
+  <style>
+    .id{
+        text-align:center;
+    }
+    #alert{
+        color:red;
+    }
+    body{
+        background-color:rgb(0, 28, 56);
+    }
+    #form{
+        margin-top:160px;
+        background-color:white;
+        border:2px solid black;
+        height:415px;
+        width:400px;
+        margin-left:600px;
+        margin-right:600px;
+        border-radius:9px;
+    }
+    input{
+        width:330px;
+        height:29px;
+        border-radius:6px;
+        margin-top:5px;
+    }
+    #is{
+        float:left;
+        padding-left:30px;
+    }
+    #submit{
+        background-color:yellow;
+        border-radius:5px;
+        width:150px;
+        margin-top:10px;
+        float:left;
+        margin-left:33px;
+    }
+    a{
+        text-decoration: none;
+        color:black;
+        border: 2px solid black;
+        margin-top:10px;
+        margin-left:40px;
+        padding-right: 10px;
+        width:100px;
+        height:24px;
+        border-radius:5px;
+        background-color: yellow;
+    }
+    a{
+        display: flex;
+        align-items: center;
+    }
+    @media screen and (min-width: 200px) and (max-width: 1200px){
+        #form{
+           margin-top:20%;
+           margin-right:0px;
+           margin-left:0px;
+           width:99%;
+           height:100%;
+        }
+        input{
+            width:78%;
+            height:100%;
+        }
+        #is{
+            padding-left:10%;
+        }
+        #submit{
+            width:82%;
+        }
+    }
+    @media screen and (max-width: 1200px){
+        #form{
+           margin-top:20%;
+           margin-right:40%;
+           margin-left:30%;
+           width:50%;
+           height:100%;
+        }
+        input{
+            width:78%;
+            height:100%;
+        }
+        #is{
+            padding-left:10%;
+        }
+        #submit{
+            width:82%;
+        }
+    }
+  </style>
+</head>
+<body>
+      <form action="#" method="post" id="form"> 
+        <p>
+            <h1 style="font-size:30px; text-align:center;">Shopify <br> Login Form</h1>
+        </p>
+        <p class="id">
+            <label for="username" id="is">Username</label><br>
+            <input type="text" id="username" name="username" placeholder="Username">
+        </p>
+        <p class="id">
+            <label for="password" id="is">Password</label><br>
+            <input type="password" id="password" name="password">
+        </p>
+        <p class="id">
+            <label for="confirm_password" id="is">Confirm Password</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" onkeyup="check(this)"><br>
+            <error id="alert"></error>
+        </p>
+        <p class="id">
+            <input id="submit" type="submit" value="SUBMIT">
+        </p>
+        <p class="ia">
+            <a href=" https://rishab701.github.io/signin/" target="blank" id="is" >SIGNUP</a>
+        </p>
+      </form>
+    <script>
+        var pass=document.getElementById("password");
+        var flag = 1; // 1 for no error | 0 for errors Agr user error krta ha like in two conditions of password wha flag = 0; hoga
+        //Aur agr user na error theek bi krvadi to wha 1 bi krvana pdega flag ko;
+        function check(elem){
+           if(elem.value.length > 0){
+            if(elem.value != pass.value){
+                document.getElementById("alert").innerText = "Password doesnot match";
+                flag=0;
+            }
+            else{
+                document.getElementById("alert").innerText = "";
+                flag=1;
+            }
+           }
+           else{
+            document.getElementById("alert").innerText = "Please Enter Confirm Password";
+            flag=0;
+           }
+        }
+        function validate(){
+            if(flag == 1){
+                return true;
+             }
+            else{
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
